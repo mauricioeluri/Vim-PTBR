@@ -10,9 +10,11 @@ syntax on
 set <F7>=<C-v><F7>
 map <F7> mzgg=G`z
 imap <C-Return> <CR><CR><C-o>k<Tab>
-:imap kl <Esc>
+:imap jj <Esc>
 noremap ç l
 noremap l k
 noremap k j
 noremap j h
 
+execute pathogen#infect()
+call pathogen#helptags()
