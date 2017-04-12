@@ -16,5 +16,9 @@ noremap l k
 noremap k j
 noremap j h
 
+"Quebra de linha sem entrar no insert mode
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
 execute pathogen#infect()
 call pathogen#helptags()
