@@ -20,7 +20,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 
-Plugin 'file:///home/m4/.vim/bundle/sparkup'
+" Plugin 'file:///home/m4/.vim/bundle/sparkup'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 
@@ -35,6 +35,10 @@ filetype plugin indent on    " required
 
 
 Plugin 'itchyny/lightline.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'skammer/vim-css-color'
+Plugin 'mattn/emmet-vim'
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -115,5 +119,6 @@ set laststatus=2
 " set modeline
 " set ls=2
 " " colorscheme
- colorscheme molokai
+" colorscheme molokai
 
+colorscheme monokai 
