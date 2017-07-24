@@ -70,8 +70,10 @@ set hlsearch
 set ignorecase
 set t_Co=256
 syntax on
-set <F7>=<C-v><F7>
-map <F7> mzgg=G`z
+
+"Identação de código"
+:map <c-f> mzgg=G`z"
+
 imap <C-Return> <CR><CR><C-o>k<Tab>
 :imap jj <Esc>
 noremap ç l
@@ -96,7 +98,7 @@ set laststatus=2
 
 "set nocompatible
 "" format
- "set autoindent
+"set autoindent
 " set backup
 " set nu
 " set smartindent
