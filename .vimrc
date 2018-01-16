@@ -101,7 +101,7 @@ nmap <CR> o<Esc>
 "call pathogen#helptags()
 
 set laststatus=2
-
+au VimEnter *  NERDTree
 
 
 
