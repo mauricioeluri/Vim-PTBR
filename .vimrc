@@ -39,6 +39,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'skammer/vim-css-color'
 Plugin 'mattn/emmet-vim'
+
+" Plugin de autocomplete
+Plugin 'valloric/YouCompleteMe'
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -101,6 +104,8 @@ nmap <CR> o<Esc>
 "call pathogen#helptags()
 
 set laststatus=2
+
+"Inicia NerdTree ao abrir o editor
 au VimEnter *  NERDTree
 
 
