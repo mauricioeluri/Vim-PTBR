@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "Construindo sub módulos"
+git submodule init
+git submodule update
+
 echo "Instalando dependências"
 sudo apt-get install build-essential cmake git python3-dev -y
 
