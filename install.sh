@@ -22,7 +22,7 @@ usage
 
 echo -e "\nInstalling dependencies"
 if [[ $REPLY == "1" ]]; then
-    sudo apt-get install build-essential cmake git python3-dev vim-nox -y
+    sudo apt-get install build-essential cmake python3-dev vim-nox -y
 elif [[ $REPLY == "2" ]]; then
     sudo apt-get install git vim-nox -y
 elif [[ $REPLY == "3" ]]; then
@@ -35,21 +35,23 @@ git submodule update
 
 echo "Copying theme to themes folder"
 mkdir -p ~/.vim/colors
-cp monokai/Monokai.vim ~/.vim/colors/monokai.vim
+cp monokai.vim ~/.vim/colors/
 
 echo "Copying configs to user folder"
 cp .vimrc ~/
 
 echo "Copying vim plugin manager to vim folder"
 mkdir -p ~/.vim/bundle
-cp -r vundle ~/.vim/bundle/Vundle.vim
+cp -r Vundle.vim ~/.vim/bundle/
 
 if [[ $REPLY != "1" ]]; then
     sed -i /omplete/d ~/.vimrc
-else
-    echo "Installing autocomplete"
-    python3 ~/.vim/bundle/YouCompleteMe/install.py
 fi
 
 echo "Installing plugins"
 vim +PluginInstall +qall
+
+if [[ $REPLY == "1" ]]; then
+    echo "Installing autocomplete"
+    python3 ~/.vim/bundle/YouCompleteMe/install.py
+fi

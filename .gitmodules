@@ -1,6 +1,0 @@
-[submodule "monokai"]
-	path = monokai
-	url = https://gist.github.com/8248094.git
-[submodule "vundle"]
-	path = vundle
-	url = https://github.com/VundleVim/Vundle.vim.git
