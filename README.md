@@ -10,4 +10,6 @@ Instalador Automático do Vim com customizações para teclados brasileiros.
 - Comandos de identação automática;
 - Autocomplete (opcional).
 
-Para mais detalhes, veja os arquivos de configuração .vimrc.
+Execute com o comando ./script.sh.
+
+Para mais detalhes, veja o arquivo de configuração .vimrc.
