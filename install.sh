@@ -1,37 +1,32 @@
 #!/bin/bash
 
-echo "Select the desired method of installation:"
-echo -e "\nNote that Autocomplete requires a lot of"
-echo "resources, and should be installed if you"
-echo "want a IDE-like Vim."
-echo -e "\n(1) Ubuntu & Debian (apt-get) + Autocomplete;"
-echo "(2) Ubuntu & Debian (apt-get) without Autocomplete;"
-echo -e "(3) YUM (Amazon Linux) without Autocomplete.\n"
+VIM=`which vim | wc -l`
+APT=`which apt-get | wc -l`
+YUM=`which yum | wc -l`
 
-usage()
-{
-    read -p "Choose the method of installation 1-3: " -n 1 -r
-    if [[ $REPLY != "1" ]] && [[ $REPLY != "2" ]] && [[ $REPLY != "3" ]]
-    then
-        echo -e "\nINVALID OPTION\n"
-        usage
-    fi
-}
-
-usage
-
-echo -e "\nInstalling dependencies"
-if [[ $REPLY == "1" ]]; then
-    sudo apt-get install build-essential cmake python3-dev vim-nox -y
-elif [[ $REPLY == "2" ]]; then
-    sudo apt-get install git vim-nox -y
-elif [[ $REPLY == "3" ]]; then
-    sudo yum install git -y
+if [[ $VIM == 0 ]] && [[ $APT == 0 ]] && [[ $YUM == 0 ]]; then
+    echo -e "\nThis distro is not supported."
+    echo "Please install Vim manually and try again.";
 fi
 
-echo "Cloning vim extensions"
-git submodule init
-git submodule update
+if [[ $APT == 1 ]]; then
+    echo "Select the desired method of installation:"
+    echo -e "\nNote that autocomplete requires a lot of resources."
+    read -p "Install Vim with autocomplete? [y/N] " -n 1 -r
+fi
+
+echo -e "\nInstalling dependencies"
+if [[ $REPLY == [yY]* ]]; then
+    sudo apt-get install build-essential cmake python3-dev vim-nox -y
+fi
+
+if [[ $VIM == 0 ]] && [[ $APT == 1 ]]; then
+    sudo apt-get install vim -y
+fi
+
+if [[ $VIM == 0 ]] && [[ $YUM == 1 ]]; then
+    sudo yum install vim -y
+fi
 
 echo "Copying theme to themes folder"
 mkdir -p ~/.vim/colors
@@ -44,14 +39,14 @@ echo "Copying vim plugin manager to vim folder"
 mkdir -p ~/.vim/bundle
 cp -r Vundle.vim ~/.vim/bundle/
 
-if [[ $REPLY != "1" ]]; then
+if [[ $REPLY != [yY]* ]]; then
     sed -i /omplete/d ~/.vimrc
 fi
 
 echo "Installing plugins"
 vim +PluginInstall +qall
 
-if [[ $REPLY == "1" ]]; then
+if [[ $REPLY == [yY]* ]]; then
     echo "Installing autocomplete"
     python3 ~/.vim/bundle/YouCompleteMe/install.py
 fi
