@@ -1,6 +1,6 @@
 # Script Vim PT-BR
 
-Instalador Automático do Vim com customizações para teclados brasileiros.
+Instalador automático do Vim com customizações para teclados brasileiros.
 
 - Instalação de todas as dependências nos formatos apt-get ou Yum install;
 - Remap completo para teclados brasileiros, incluindo uso de JKLÇ como navegação e outras modificações como JJ para escape;
