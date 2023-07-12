@@ -20,7 +20,7 @@ if [[ $REPLY == [yY]* ]]; then
     sudo apt-get install build-essential cmake python3-dev vim-nox -y
 fi
 
-if [[ $VIM == 0 ]] && [[ $APT == 1 ]]; then
+if [[ $VIM == 0 ]] && [[ $APT == 1 ]] && [[ $REPLY != [yY]* ]]; then
     sudo apt-get install vim -y
 fi
 
